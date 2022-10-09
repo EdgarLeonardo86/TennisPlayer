@@ -18,8 +18,8 @@ export class TennisplayerService {
     return this.httpClient.delete(this.endpoint + id);
   }
 
-  updateTennist(id) {
-    //return this.httpClient.update(this.endpoint + id);
+  updateTennist(id,tenista) {
+    return this.httpClient.put(this.endpoint + id, tenista);
   }
 
  addTennisPlayer(tenista) {

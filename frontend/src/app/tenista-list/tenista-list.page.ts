@@ -64,7 +64,7 @@ export class TenistaListPage implements OnInit {
     const { data, role } = await modal.onWillDismiss();
 
     if (role === 'confirm') {
-
+      this.getAllTennisPlayers();
     }
   }
 

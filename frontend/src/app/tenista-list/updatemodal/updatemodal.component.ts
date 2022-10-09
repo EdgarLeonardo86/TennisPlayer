@@ -24,5 +24,13 @@ export class UpdatemodalComponent implements OnInit {
     this.modalController.dismiss(null, 'cancel');
   }
 
+  updateTennisPlayer() {
+    const {id, ...tenista} = this.tennisform;
+    this.tennisplayerService.updateTennist(id,tenista).subscribe(response => {
+      this.modalController.dismiss(1, 'confirm');
+    }, error=> {
+      alert("Error a la hora de actualizar");
+    });
+  }
 
 }
