@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tennis player list</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let t of tennisplayers">
+      <ion-label>
+      <h1><b>Name:</b> {{t.name}}<br/></h1>
+      <p></p>
+      <p><b>Age:</b> {{t.age}}<br/></p>
+      
+      <p><b>Titles:</b> {{t.titles}}<br/></p>
+      
+      <p><b>ATP ranking:</b> {{t.ranking}}</p>
+    </ion-label>
+    <ion-button expand="block" (click)="deleteTenists(t.id)"> delete tenisplayers</ion-button>
+    </ion-item>
+   
+    </ion-list>
+</ion-content>

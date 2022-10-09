@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title slot="">
+    <b>ATP LIST</b> 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <!--
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<div>
+  <h1>{{myWelcome}}</h1>
+  <h2>Tengo calor</h2>
+</div>-->
+
+<ion-card>
+  <img src="assets/icon/atp.jpg" />
+  <ion-card-content>
+    Bienvenidos a la lista de jugadores en el circuito ATP
+  </ion-card-content>
+</ion-card>
+
+<ion-button expand="block" (click)="gotoTenists()"> Show tenists</ion-button>
+</ion-content>
