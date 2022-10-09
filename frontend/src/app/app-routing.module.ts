@@ -14,7 +14,13 @@ const routes: Routes = [
   {
     path: 'tenista-list',
     loadChildren: () => import('./tenista-list/tenista-list.module').then( m => m.TenistaListPageModule)
+  },  {
+    path: 'addtennisplayer',
+    loadChildren: () => import('./addtennisplayer/addtennisplayer.module').then( m => m.AddtennisplayerPageModule)
   },
+
+ 
+
 ];
 
 @NgModule({

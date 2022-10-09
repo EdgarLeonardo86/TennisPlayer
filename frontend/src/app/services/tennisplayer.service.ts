@@ -18,4 +18,12 @@ export class TennisplayerService {
     return this.httpClient.delete(this.endpoint + id);
   }
 
+  updateTennist(id) {
+    //return this.httpClient.update(this.endpoint + id);
+  }
+
+ addTennisPlayer(tenista) {
+   return this.httpClient.post(this.endpoint,tenista);
+  }
+
 }

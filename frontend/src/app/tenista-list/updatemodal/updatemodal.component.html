@@ -1,0 +1,29 @@
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">Cancel</ion-button>
+        </ion-buttons>
+        <ion-title>Update Tennis Player</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="updateTennisPlayer()" [strong]="true">Confirm</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-item>
+        <ion-label position="stacked">Enter name</ion-label>
+        <ion-input type="text" placeholder="name" [(ngModel)]="tennisform.name" [value] = "tennisform.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Enter age</ion-label>
+        <ion-input type="text" placeholder="age" [(ngModel)]="tennisform.age" [value] = "tennisform.age"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Enter titles</ion-label>
+        <ion-input type="text" placeholder="titles" [(ngModel)]="tennisform.titles" [value] = "tennisform.titles"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Enter ranking</ion-label>
+        <ion-input type="text" placeholder="ranking" [(ngModel)]="tennisform.ranking" [value] = "tennisform.ranking"></ion-input>
+      </ion-item>
+    </ion-content>

@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TennisplayerService } from '../services/tennisplayer.service';
+import { IonModal, ModalController } from '@ionic/angular';
+import { OverlayEventDetail } from '@ionic/core/components';
+import { UpdatemodalComponent } from './updatemodal/updatemodal.component';
+
+
 
 @Component({
   selector: 'app-tenista-list',
@@ -8,34 +13,26 @@ import { TennisplayerService } from '../services/tennisplayer.service';
 })
 export class TenistaListPage implements OnInit {
 
- /* tenistas: any = [
-
-    {
-      nombre: "Rafa Nadal",
-      titulos: "83",
-      edad: "36",
-      puesto: "3"
-    },
-    
-    {
-      nombre: "Carlos Alcaraz",
-      titulos: "5",
-      edad: "19",
-      puesto: "1"
-    },
-
-    {
-      nombre: "Novak Djokovic",
-      titulos: "74",
-      edad: "34",
-      puesto: "8"
-    },
-    
-      ]*/
+  @ViewChild(IonModal) modal: IonModal;
 
       tennisplayers:  any = [];
 
-  constructor(private tennisplayerService: TennisplayerService) { }
+      tennisplayer =  {
+        name: "",
+        age: "",
+        titles: "",
+        ranking: ""
+      }
+    
+      tennisplayerupdate =  {
+        id: "",
+        name: "",
+        age: "",
+        titles: "",
+        ranking: ""
+      }
+
+  constructor(private tennisplayerService: TennisplayerService, private modalController: ModalController) { }
 
   ngOnInit() {
     this.getAllTennisPlayers();
@@ -55,5 +52,35 @@ export class TenistaListPage implements OnInit {
   });
   
   }
+
+  async openModal(tenista) {
+    const modal = await this.modalController.create({
+      component: UpdatemodalComponent,
+      componentProps : {
+        tennisplayerupdate : tenista
+    }});
+    modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+
+    if (role === 'confirm') {
+
+    }
+  }
+
+  cancel() {
+    this.modal.dismiss(null, 'cancel');
+  }
+
+  addTennisPlayer() {
+    this.tennisplayerService.addTennisPlayer(this.tennisplayer).subscribe(response => {
+      this.getAllTennisPlayers();
+      this.modal.dismiss(null, 'confirm');
+  }, error=> {
+    alert("Error a la hora de añadir");
+  });
+  }
+
+
 
 }

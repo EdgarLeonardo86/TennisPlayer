@@ -16,8 +16,84 @@
       
       <p><b>ATP ranking:</b> {{t.ranking}}</p>
     </ion-label>
-    <ion-button expand="block" (click)="deleteTenists(t.id)"> delete tenisplayers</ion-button>
+    <ion-button (click)="openModal(t)">
+      <ion-icon slot="icon-only" name="ion-loop"></ion-icon> Update
+    </ion-button>
+    <ion-button color="danger" (click)="deleteTenists(t.id)"> 
+      <ion-icon slot="icon-only" name="ion-trash-a"></ion-icon>Delete
+    </ion-button>
+
     </ion-item>
    
     </ion-list>
+
+    <ion-button id="open-modal" expand="block">Add</ion-button>
+  <ion-modal trigger="open-modal" (click)="addTennisPlayer()">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>Add Tennis Player</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="addTennisPlayer()" [strong]="true">Confirm</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-label position="stacked">Enter name</ion-label>
+          <ion-input type="text" placeholder="name" [(ngModel)]="tennisplayer.name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Enter age</ion-label>
+          <ion-input type="text" placeholder="age" [(ngModel)]="tennisplayer.age"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Enter titles</ion-label>
+          <ion-input type="text" placeholder="titles" [(ngModel)]="tennisplayer.titles"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Enter ranking</ion-label>
+          <ion-input type="text" placeholder="ranking" [(ngModel)]="tennisplayer.ranking"></ion-input>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal trigger="open-modal-update" (click)="updateTennisPlayer()">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>Update Tennis Player</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="updateTennisPlayer()" [strong]="true">Confirm</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-label position="stacked">Enter name</ion-label>
+          <ion-input type="text" placeholder="name" [(ngModel)]="tennisplayer.name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Enter age</ion-label>
+          <ion-input type="text" placeholder="age" [(ngModel)]="tennisplayer.age"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Enter titles</ion-label>
+          <ion-input type="text" placeholder="titles" [(ngModel)]="tennisplayer.titles"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Enter ranking</ion-label>
+          <ion-input type="text" placeholder="ranking" [(ngModel)]="tennisplayer.ranking"></ion-input>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+   
 </ion-content>

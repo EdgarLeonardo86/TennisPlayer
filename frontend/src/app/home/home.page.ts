@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
- // myWelcome: string = "el puto";
+
 
   constructor(private router: Router) {}
 
