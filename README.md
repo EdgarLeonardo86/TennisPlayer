@@ -13,6 +13,11 @@ Luego abrimos el proyecto Tenistas de VSC, y ejecutamos tanto el backend como el
 Una vez hayamos hecho estos pasos, pasamos a Postman, y aquí podemos ejecutar los cuatro métodos (get, post, put y delete), con el objetivo de visualizar que funciona correctamente.
 https://warped-station-532786.postman.co/workspace/02ba57e9-73ef-4ba8-b012-be65324e6752/collection/20395488-13b7ce49-07d0-4954-a00c-d0fc89c073e3?action=share&creator=20395488&ctx=documentation
 
+- Ejecutar el Get -> Muestra una prueba de la lista de tenistas presentes actualmente en la base de datos
+- Ejecutar el Post -> Con él insertamos un nuevo tenista
+- Ejecutar el Put -> Con él actualizamos los datos de un tenista
+- Ejecutar el Delete -> Con el podremos eliminar el dato que elijamos de nuestra base de datos
+
 PÁGINAS EN EL PROYECTO
 Para este proyecto, he creado varias páginas:
 - Home: Es la página principal, en la que está la ion-card de entrada a la app, en el que tenemos un menú de navegación, que irá o a home, o a la página AddPlayer, y también disponemos de un botón, que te llevará a tenista-list.
