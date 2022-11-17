@@ -14,13 +14,19 @@ const routes: Routes = [
   {
     path: 'tenista-list',
     loadChildren: () => import('./tenista-list/tenista-list.module').then( m => m.TenistaListPageModule)
-  },  {
-    path: 'addtennisplayer',
-    loadChildren: () => import('./addtennisplayer/addtennisplayer.module').then( m => m.AddtennisplayerPageModule)
   },
-
- 
-
+  {
+    path: 'addplayer',
+    loadChildren: () => import('./addplayer/addplayer.module').then( m => m.AddplayerPageModule)
+  },
+  {
+    path: 'updateplayer',
+    loadChildren: () => import('./updateplayer/updateplayer.module').then( m => m.UpdateplayerPageModule)
+  },
+  {
+    path: 'updplayer',
+    loadChildren: () => import('./updplayer/updplayer.module').then( m => m.UpdplayerPageModule)
+  },
 ];
 
 @NgModule({

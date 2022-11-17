@@ -1,10 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { TennisplayerService } from '../services/tennisplayer.service';
-import { IonModal, ModalController } from '@ionic/angular';
-import { OverlayEventDetail } from '@ionic/core/components';
-import { UpdatemodalComponent } from './updatemodal/updatemodal.component';
-
-
+import { Router } from '@angular/router';
+import { AlertController, IonList, ToastController } from '@ionic/angular';
+import { tennisplayer, TennisplayerService } from '../services/tennisplayer.service';
 
 @Component({
   selector: 'app-tenista-list',
@@ -13,26 +10,11 @@ import { UpdatemodalComponent } from './updatemodal/updatemodal.component';
 })
 export class TenistaListPage implements OnInit {
 
-  @ViewChild(IonModal) modal: IonModal;
 
       tennisplayers:  any = [];
+      searchedPlayer: any;
 
-      tennisplayer =  {
-        name: "",
-        age: "",
-        titles: "",
-        ranking: ""
-      }
-    
-      tennisplayerupdate =  {
-        id: "",
-        name: "",
-        age: "",
-        titles: "",
-        ranking: ""
-      }
-
-  constructor(private tennisplayerService: TennisplayerService, private modalController: ModalController) { }
+  constructor(private tennisplayerService: TennisplayerService, private toastCtrl: ToastController, public alertController: AlertController, private router: Router) { }
 
   ngOnInit() {
     this.getAllTennisPlayers();
@@ -47,40 +29,43 @@ export class TenistaListPage implements OnInit {
   deleteTenists(id) {
   this.tennisplayerService.deleteTennist(id).subscribe(response => {
     this.getAllTennisPlayers();
+    this.presentToast('Elemento borrado');
   }, error=> {
     alert("Error a la hora de borrar");
   });
   
   }
 
-  async openModal(tenista) {
-    const modal = await this.modalController.create({
-      component: UpdatemodalComponent,
-      componentProps : {
-        tennisplayerupdate : tenista
-    }});
-    modal.present();
-
-    const { data, role } = await modal.onWillDismiss();
-
-    if (role === 'confirm') {
-      this.getAllTennisPlayers();
-    }
+ 
+  gotoTenists() {
+    this.router.navigateByUrl("/addplayer");
   }
 
-  cancel() {
-    this.modal.dismiss(null, 'cancel');
+  gotoUpdateTenists(tennisplayer) {
+   this.router.navigate(["/updplayer",tennisplayer]);
+  
   }
 
-  addTennisPlayer() {
-    this.tennisplayerService.addTennisPlayer(this.tennisplayer).subscribe(response => {
-      this.getAllTennisPlayers();
-      this.modal.dismiss(null, 'confirm');
-  }, error=> {
-    alert("Error a la hora de añadir");
-  });
+  handleRefresh(event) {
+    setTimeout(() => {
+      // Any calls to load data go here
+      event.target.complete();
+    }, 2000);
+  };
+
+  async presentToast(message: string) {
+    const toast = await this.toastCtrl.create({
+      message,
+      duration: 2500
+    
+    });
+
+    toast.present();
   }
 
+  //@ViewChild(IonList) ionList: IonList;
 
+
+  
 
 }

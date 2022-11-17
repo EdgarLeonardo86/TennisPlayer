@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create Player</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="playerForm" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input formControlName="name" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Titles</ion-label>
+        <ion-input formControlName="titles" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Age</ion-label>
+        <ion-input formControlName="age" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Ranking</ion-label>
+        <ion-input formControlName="ranking" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" expand="block">Add</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+<!--
+    <ion-content class="ion-padding">
+      <h1>Content</h1>
+    </ion-content>
+    <ion-footer>
+      <ion-toolbar>
+        <ion-title>Footer</ion-title>
+      </ion-toolbar>
+    </ion-footer>
+  -->
+  </ion-list>
+</ion-content>

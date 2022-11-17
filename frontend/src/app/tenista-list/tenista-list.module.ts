@@ -8,6 +8,8 @@ import { TenistaListPageRoutingModule } from './tenista-list-routing.module';
 
 import { TenistaListPage } from './tenista-list.page';
 
+import { TennisplayerService } from '../services/tennisplayer.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,6 @@ import { TenistaListPage } from './tenista-list.page';
     IonicModule,
     TenistaListPageRoutingModule
   ],
-  declarations: [TenistaListPage]
+  declarations: [TenistaListPage], 
 })
 export class TenistaListPageModule {}
