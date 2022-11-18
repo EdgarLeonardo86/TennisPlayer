@@ -28,7 +28,7 @@ export class TennisplayerService {
   }
 
   deleteTennist(id) {
-    return this.httpClient.delete(this.endpoint + id);
+    return this.httpClient.delete(this.endpoint + "/" +  id);
   }
 
   create(tennisplayer) {
